@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+        Cadastro - Guia das Receitas
+    </title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="formatos.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fae6e1;
+        }
+        .container-fluid {
+            padding: 60px calc(100vh - 100px) 25px;
+            overflow-y: auto;
+        }
+        footer {
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="home.html">
+            <img src="Guia das receitas_Prancheta 1.png" alt="Logotipo Guia das Receitas" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="receitas.html">Receitas</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="cadastro.html">
+                        Cadastro
+                        <span class="sr-only">(atual)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="container-fluid">
+    <h1>
+        Efetue seu Cadastro
+    </h1>
+    <form action="MAILTO:rodolfomanhaes@gmail.com" enctype="text/plain" method="post">
+        <div class="form-group">
+            <label for="nome">
+                Nome
+            </label>
+            <input class="form-control" id="nome" name="nome" required="" type="text" />
+        </div>
+        <div class="form-group">
+            <label for="email">
+                E-mail
+            </label>
+            <input class="form-control" id="email" name="email" required="" type="email" />
+        </div>
+        <div class="form-group">
+            <label for="cep">
+                CEP
+            </label>
+            <input class="form-control" id="cep" name="cep" pattern="\d{5}-\d{3}" required="" type="text" />
+        </div>
+        <div class="form-group">
+            <label for="rua">
+                Rua
+            </label>
+            <input class="form-control" id="rua" name="rua" required="" type="text" />
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="numero">
+                    Número
+                </label>
+                <input class="form-control" id="numero" name="numero" required="" type="number" />
+            </div>
+            <div class="form-group col-md-6">
+                <label for="complemento">
+                    Complemento
+                </label>
+                <input class="form-control" id="complemento" name="complemento" required="" type="text" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cidade">
+                Cidade
+            </label>
+            <input class="form-control" id="cidade" name="cidade" required="" type="text" />
+        </div>
+        <div class="form-group">
+            <label for="estado">
+                Estado
+            </label>
+            <input class="form-control" id="estado" name="estado" required="" type="text" />
+        </div>
+        <button class="btn btn-primary" type="submit">
+            Cadastrar
+        </button>
+    </form>
+</div>
+<footer>
+    <p>
+        © Guia das Receitas 2023
+    </p>
+</footer>
+</body>
+</html>

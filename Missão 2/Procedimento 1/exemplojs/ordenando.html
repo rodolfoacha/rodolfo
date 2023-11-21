@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ordenando Valores</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f7f7f7;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .container {
+                background-color: white;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                width: 300px;
+            }
+            .input-group {
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+            }
+            input[type=number] {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                flex-grow: 1;
+                margin-right: 10px;
+            }
+            button {
+                background-color: #007bff;
+                color: white;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+                white-space: nowrap;
+                margin-bottom: 10px; 
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+            select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                background-color: white;
+                margin-bottom: 10px;
+            }
+
+            li {
+                padding: 5px;
+                border-bottom: 1px solid #ccc;
+            }
+        </style>
+        <script src="ordenando.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Ordenando Valores</h2>
+            <label for="valor">Valor</label>
+            <div class="input-group">
+                <input type="number" id="valor">
+            </div>
+            <button onclick="add()">Adicionar</button>
+
+            <select id="metodoOrdenacao">
+                <option value="bubble_sort" selected>Bubble Sort</option>
+                <option value="selection_sort">Selection Sort</option>
+                <option value="quick_sort">Quick Sort</option>
+            </select>
+            <button onclick="ordenar()">Ordenar</button>
+            <button onclick="misturar()">Misturar</button>
+
+            <ul id="valores"></ul>
+        </div>
+    <script>
+        function add() {
+            let entrada = document.getElementById('valor');
+            let lista = document.getElementById('valores');
+            let node = document.createElement('li');
+            let texto = document.createTextNode(entrada.value);
+            node.appendChild(texto);
+            lista.appendChild(node);
+        }
+
+        function ordenar() {
+            let lista = document.getElementById('valores');
+            let metodo = document.getElementById('metodoOrdenacao').value;
+            let valores = Array.from(lista.children).map(li => parseInt(li.innerHTML));
+
+            switch (metodo) {
+                case 'bubble_sort':
+                    bubble_sort(valores);
+                    break;
+                case 'selection_sort':
+                    selection_sort(valores);
+                    break;
+                case 'quick_sort':
+                    quick_sort(valores, 0, valores.length - 1);
+                    break;
+            }
+
+            lista.innerHTML = valores.map(v => `<li>${v}</li>`).reduce((acc, li) => acc + li, '');
+        }
+
+        function misturar() {
+            let lista = document.getElementById('valores');
+            let valores = Array.from(lista.children).map(li => parseInt(li.innerHTML));
+            shuffle(valores, valores.length);
+            lista.innerHTML = valores.map(v => `<li>${v}</li>`).reduce((acc, li) => acc + li, '');
+        }
+    </script>
+</body>
+</html>
