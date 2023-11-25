@@ -1,0 +1,17 @@
+/* src/styles/styles.css */
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 15px;
+  }
+
+  .main {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .title {
+    color: #0070f3;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }

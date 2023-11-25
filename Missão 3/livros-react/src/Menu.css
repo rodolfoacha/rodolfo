@@ -1,0 +1,10 @@
+div {
+    background-color: grey;
+    padding: 10px;
+  }
+
+  a {
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+  }
