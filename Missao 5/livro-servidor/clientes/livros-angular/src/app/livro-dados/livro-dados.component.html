@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h2 class="text-center mb-4">Dados do Livro</h2>
+      <form #livroForm="ngForm" (ngSubmit)="incluir" novalidate>
+
+        <div class="mb-3">
+          <label for="tituloLivro" class="form-label">Título</label>
+          <input type="text" class="form-control" id="tituloLivro" required ngModel name="titulo" #titulo="ngModel" placeholder="Digite o título do livro">
+          <div *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)" class="alert alert-danger">
+            O título é obrigatório.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="resumoLivro" class="form-label">Resumo</label>
+          <textarea class="form-control" id="resumoLivro" required ngModel name="resumo" #resumo="ngModel" rows="3" placeholder="Digite o resumo do livro"></textarea>
+          <div *ngIf="resumo.invalid && (resumo.dirty || resumo.touched)" class="alert alert-danger">
+            Preencha este campo.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="editoraLivro" class="form-label">Editora</label>
+          <select class="form-select" id="editoraLivro" required ngModel name="editora" #editora="ngModel">
+            <option value="" disabled selected>Selecione a editora</option>
+          </select>
+          <div *ngIf="editora.invalid && (editora.dirty || editora.touched)" class="alert alert-danger">
+            Escolha uma editora.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="autoresLivro" class="form-label">Autores (1 por linha)</label>
+          <textarea class="form-control" id="autoresLivro" required ngModel name="autores" #autores="ngModel" rows="4" placeholder="Digite o nome dos autores, um por linha"></textarea>
+          <div *ngIf="autores.invalid && (autores.dirty || autores.touched)" class="alert alert-danger">
+            Insira pelo menos um autor.
+          </div>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary" [disabled]="livroForm.invalid">Salvar Dados</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
